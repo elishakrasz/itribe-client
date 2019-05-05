@@ -11,7 +11,16 @@ const outback = "../../Pashtun/Pashtun copy.jpg"
 export default class PageBreak extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel
+                showThumbs={false}
+                showStatus={false}
+                infiniteLoop={true}
+                autoPlay={true}
+                dynamicHeight={true}
+                style={{
+                    height: '300px'
+                }}
+            >
                 <div>
                     <img src={pashtunChildren} />
                     <p className="legend">Legend 1</p>
