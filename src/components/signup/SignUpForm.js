@@ -95,7 +95,7 @@ class SignUpForm extends Component {
         >
           <Grid.Column style={{ maxWidth: 500 }}>
             <Header as="h1" color="teal" textAlign="center">
-              <Image src={itribeIcon} size="large" /> Log-in to your account
+              <Image src={itribeIcon} size="large" /> Sign Up for iTribe
             </Header>
             <Mutation
               mutation={SIGNUP_USER}

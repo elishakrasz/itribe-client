@@ -15,6 +15,7 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './contributions/CheckoutForm'
 import Globe from './maps/Globe';
@@ -23,6 +24,8 @@ import 'react-chat-widget/lib/styles.css';
 import LoginModal from './login/LoginModal';
 import SignUpModal from './signup/SignUpModal';
 import ReactPlayer from 'react-player'
+import { Carousel } from './Carousel/Carousel';
+import PageBreak from './Carousel/PageBreak';
 
 
 const itribeIcon = "../../itribe.png"
@@ -91,8 +94,18 @@ class DesktopContainer extends Component {
             </Menu.Item>
             <Menu.Item as='a' header>Home</Menu.Item>
                 <Menu.Item position='right'>
-                  <LoginModal />
-                  <SignUpModal />
+                  <Button
+                    as={Link} to='/login'
+                  >
+                    Login In
+                  </Button>
+                  {/* <LoginModal /> */}
+                  <Button
+                    as={Link} to='/signup'
+                  >
+                    Sign Up
+                  </Button>
+                  {/* <SignUpModal /> */}
                 </Menu.Item>
               </Container>
             </Menu>
@@ -232,7 +245,7 @@ const LayoutView = () => (
             <div style={{
               textAlign: 'center'
             }}>
-            <Button size='huge'>Check Them Out</Button>
+            <Button size='huge'>Check-out Our Project</Button>
             </div>
           </Grid.Column>
           <Grid.Column floated='right' width={8}>
@@ -291,17 +304,17 @@ const LayoutView = () => (
         <Grid.Row>
           <Grid.Column width={7}>
             <Header as='h3' style={{ fontSize: '3em' }}>
-              This is a Global Story
+              From Exile to Return
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Regardless of your heritage you will find your story in this epic narrative.
+            Journey from Ancient Israel, across the Silk Road, Sub Saharan Africa, the Far East, and North America and learn facts, culture and legends of the lost tribes of Israel.
             </p>
-            <Header as='h3' style={{ fontSize: '2.5em' }}>
+            {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
               The Lost Tribes of Israel
             </Header>
             <p style={{ fontSize: '1.33em' }}>
               Discover the past, present and future of the world's most dispersed people
-            </p>
+            </p> */}
             <div style={{
               textAlign: 'center'
             }}>
@@ -319,17 +332,17 @@ const LayoutView = () => (
     </Segment>
     <Segment style={{ padding: '5em' }} vertical>
     <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Breaking The Grid, Grabs Your Attention
+        <Header as='h3' style={{ fontSize: '2.5em', textAlign: 'center' }}>
+          About Us
         </Header>
         <p style={{ fontSize: '1.33em' }}>
-          Instead of focusing on content creation and hard work, we have learned how to master the
-          art of doing nothing by providing massive amounts of whitespace and generic content that
-          can seem massive, monolithic and worth your attention.
+        Digital social network mapping out the exiled remnants of the ancient people of Israel. Our purpose is to weave the past, present, and future of the House of Israel leading up to the next great movement, the global Israelite commonwealth, and the great decentralization.
         </p>
-        <Button as='a' size='large'>
-          Read More
-        </Button>
+        <div style={{
+              textAlign: 'center'
+            }}>
+            <Button size='large'>Contact Us</Button>
+            </div>
         </Container>
     </Segment>
     <Segment style={{ padding: '5em' }}>
@@ -361,7 +374,8 @@ const LayoutView = () => (
             // backgroundImage: 'url("../../lost-tribe-map-1.jpg")'
             
             }} width={7}>
-            <Header as='h3' style={{ fontSize: '2.5em' }}>
+            <PageBreak />
+            {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
             Welcome to The Lost Tribes of Israel Course!!
             </Header>
             <p style={{ fontSize: '1.3em' }}>
@@ -371,7 +385,7 @@ const LayoutView = () => (
             <b>Course Host: Amar'e Stoudemire </b>
             <br />
             <b>Course Administrator: Rabbi Harry Rozenberg</b>
-            </p>
+            </p> */}
             {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
               The Lost Tribes of Israel
             </Header>
@@ -388,7 +402,7 @@ const LayoutView = () => (
           </Grid.Column>
     </Grid>
     </Segment>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    {/* <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em' }}>
           Breaking The Grid, Grabs Your Attention
@@ -429,12 +443,13 @@ const LayoutView = () => (
         </div>
       </StripeProvider>
       </Container>
-      <Widget 
+      
+    </Segment> */}
+    <Widget 
         title='iTribe Welcomes You'
         subtitle="Tell us your story? or ask a question..."
         titleAvatar={itribeIcon}
       />
-    </Segment>
     <Segment inverted vertical style={{ padding: '5em 0em', backgroundColor: '#004D8A' }}>
       <Container>
         <Grid divided inverted stackable>
