@@ -9,6 +9,7 @@ import {
 } from "react-simple-maps"
 import { scaleLinear } from "d3-scale"
 import geographyFile from '../../static/world-110m.json'
+import geoFile from '../../static/world-50m-with-population.json'
 import cities from '../../static/world-most-populous-cities.json'
 
 // import cities from "../../../world-most-populous-cities.json"
@@ -17,6 +18,14 @@ import cities from '../../static/world-most-populous-cities.json'
 const populationScale = scaleLinear()
   .domain([10750000,37843000])
   .range([5,22])
+const populationScaleTwo = scaleLinear()
+  .domain([10750000, 20000000, 37843000])
+  .range(["#0D8050","#106BA3","#C23030"])
+
+const popScale = scaleLinear()
+  .domain([0,100000000,1400000000])
+  .range(["#0D8050","#106BA3","#C23030"])
+//   .range(["#CFD8DC","#607D8B","#37474F"])
 
 const wrapperStyles = {
   width: "100%",
@@ -24,7 +33,7 @@ const wrapperStyles = {
   margin: "0 auto",
 }
 
-class Globe extends Component {
+class ChloroGlobe extends Component {
   render() {
     return (
       <div style={wrapperStyles}>
@@ -41,9 +50,8 @@ class Globe extends Component {
             height: "auto",
           }}
           >
-          <ZoomableGlobe center={[96,32]}>
-            <circle cx={400} cy={400} r={300} fill="transparent" stroke="#eceff1" />
-            <Geographies geography={ geographyFile } disableOptimization>
+          <ZoomableGlobe center={[0,20]}>
+            <Geographies geography={ geoFile } disableOptimization>
               {(geographies, projection) =>
                 geographies.map((geography, i) => {
                   return (
@@ -54,23 +62,23 @@ class Globe extends Component {
                       projection={projection}
                       style={{
                         default: {
-                          fill: "#eceff1",
+                          fill: popScale(geography.properties.pop_est),
                           stroke: "#607D8B",
                           strokeWidth: 0.75,
                           outline: "none",
                         },
                         hover: {
-                          fill: "#eceff1",
+                          fill: "#263238",
                           stroke: "#607D8B",
                           strokeWidth: 0.75,
                           outline: "none",
                         },
                         pressed: {
-                          fill: "#eceff1",
+                          fill: "#263238",
                           stroke: "#607D8B",
                           strokeWidth: 0.75,
                           outline: "none",
-                        },
+                        }
                       }}
                     />
                   )
@@ -115,4 +123,4 @@ class Globe extends Component {
   }
 }
 
-export default Globe
+export default ChloroGlobe

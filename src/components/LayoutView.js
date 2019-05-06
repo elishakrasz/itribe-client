@@ -4,6 +4,7 @@ import {
   Button,
   Container,
   Divider,
+  Input,
   Grid,
   Header,
   Icon,
@@ -29,9 +30,10 @@ import "react-chat-widget/lib/styles.css";
 import LoginModal from "./login/LoginModal";
 import SignUpModal from "./signup/SignUpModal";
 import ReactPlayer from "react-player";
-import { Carousel } from "./Carousel/Carousel";
 import PageBreak from "./Carousel/PageBreak";
 import { Calendar } from "./Date/Calendar";
+import ChloroGlobe from "./maps/ChloroGlobe";
+import { HeroVideoExample } from "./Carousel/BackgroundVideo/HeroVideoExample";
 
 const itribeIcon = "../../itribe.png";
 const itribeVideo = "https://www.youtube.com/watch?v=YnHcvwOXQIo";
@@ -41,8 +43,9 @@ const pashtunChildren = "../../Pashtun/children.jpg";
 const theologicalInst = "../../ext.jpg";
 const land = "../../land.jpg";
 const shinto = "../../Shinto/IMG_1833.JPG";
-const outback = "../../Pashtun/Pashtun copy.jpg";
+const outback = "../../Pashtun/testpash_update.jpg";
 const tracing = "../../Tracing.jpg";
+const harry = "../../harry_ilona.jpg"
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -74,22 +77,20 @@ class DesktopContainer extends Component {
           onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
-            // inverted
+
             textAlign="center"
             style={{
-              minHeight: 1000,
-              maxHeight: 1200,
+              minHeight: 1200,
+              maxHeight: 1300,
               padding: "1em 0em",
               backgroundColor: "#C1CDD4"
             }}
             vertical
           >
             <Menu
-              // fixed={fixed ? 'top' : null}
               fixed="top"
               inverted="true"
               pointing={!fixed}
-              // secondary={!fixed}
               size="large"
               style={{
                 backgroundColor: "#004D8A"
@@ -108,7 +109,7 @@ class DesktopContainer extends Component {
                   Home
                 </Menu.Item>
                 <Menu.Item position="right">
-                  <Button as={Link} to="/login">
+                  <Button color="teal" as={Link} to="/login">
                     Log In
                   </Button>
                   <span
@@ -117,7 +118,7 @@ class DesktopContainer extends Component {
                     }}
                   />
                   {/* <LoginModal /> */}
-                  <Button as={Link} to="/signup">
+                  <Button color="teal" as={Link} to="/signup">
                     Sign Up
                   </Button>
                   {/* <SignUpModal /> */}
@@ -138,7 +139,7 @@ class DesktopContainer extends Component {
                       The Lost Tribes are Coming Home
                     </Header>
                     <p style={{ fontSize: "1.33em" }}>
-                      iTribe is in th process of activating a newtork of
+                      iTribe is in the process of activating a newtork of
                       individuals and communities whose members identity as
                       being from an ancient people of Israel
                     </p>
@@ -146,14 +147,15 @@ class DesktopContainer extends Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column textAlign="center">
-                    <Button color='green' size="huge">
-                      Welcome!!
+                    <Button color='teal' size="huge">
+                      Welcome!
                     </Button>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
             </Segment>
-            <Globe />
+            {/* <Globe /> */}
+            <ChloroGlobe />
             {console.log('hope', sessionStorage)
             }
           </Segment>
@@ -275,7 +277,7 @@ const LayoutView = () => (
                 textAlign: "center"
               }}
             >
-              <Button color='green' size="huge">Check-out Our Project</Button>
+              <Button color='teal' size="huge">iTribe Project</Button>
             </div>
           </Grid.Column>
           <Grid.Column floated="right" width={8}>
@@ -293,7 +295,7 @@ const LayoutView = () => (
         </Grid.Column>
         <Grid.Column
           style={{
-            padding: "50px"
+            padding: "50px", textAlign: "center"
             // backgroundImage: 'url("../../lost-tribe-map-1.jpg")'
           }}
           width={7}
@@ -326,7 +328,7 @@ const LayoutView = () => (
             }}
           >
             <Button
-              primary
+              color='green'
               size="huge"
               style={{
                 marginTop: "20px"
@@ -398,43 +400,43 @@ const LayoutView = () => (
             textAlign: "center"
           }}
         >
-          <Button size="large">Contact Us</Button>
+          <Button size="large" color="green">Contact Us</Button>
         </div>
       </Container>
     </Segment>
     <Segment style={{ padding: "0em", height: "100%" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
-        <Grid.Column width={8}>
-          <Grid.Row textAlign="center">
-            <ReactPlayer url={itribeCourse} playing loop muted width="100%" />
-          </Grid.Row>
-        </Grid.Column>
+        <Grid.Column width={7}
+              style={{
+                marginTop: '50px',
+                marginLeft: '100px'
+              }}
+          >
+            <Header as="h3" style={{ fontSize: "3em" }}>
+              Rabbi Harry Rozenberg
+            </Header>
+            <p style={{ fontSize: "1.33em" }}>
+            Co-founder of @The STAT Academy - Theological Research Institute habs been on a mission for over  10 years to unite the tribes of Israel scattered and found in all different religions.
+              <br />
+              <br />
+              Rabbi Harry lectures all over the world and has created a college accredited course on the Lost Tribes of Israels. Engaging maps, compelling source material and a powerful narrative that chronicles the Israeli Exile and the return of the tribes of Israel from the four corners of the world.
+            </p>
+            <div
+              style={{
+                textAlign: "left"
+              }}
+            >
+              <Button size="huge" color="green">Sign Up To Learn More</Button>
+            </div>
+          </Grid.Column>
+
         <Grid.Column
           style={{
             padding: "50px"
-            // height: '350px'
-            // backgroundImage: 'url("../../lost-tribe-map-1.jpg")'
           }}
           width={7}
         >
           <PageBreak showThumbs={false} />
-          {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
-            Welcome to The Lost Tribes of Israel Course!!
-            </Header>
-            <p style={{ fontSize: '1.3em' }}>
-            This online course is hosted by the Theological Research Institute [TRI], accredited by The National College Credit Recommendation Services [NCCRS]. Together with STAT Academy, an educational platform hosted by Amar'e Stoudemire, TRI and STAT academy conduct an overview of the past, present, and future of humanity based on teachings from the Tanach (Hebrew Bible).
-            <br />
-            <br />
-            <b>Course Host: Amar'e Stoudemire </b>
-            <br />
-            <b>Course Administrator: Rabbi Harry Rozenberg</b>
-            </p> */}
-          {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
-              The Lost Tribes of Israel
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Discover the past, present and future of the world's most dispersed people
-            </p> */}
           <div
             style={{
               textAlign: "center"
@@ -478,10 +480,10 @@ const LayoutView = () => (
             <Grid.Column width={5}>
               <Header inverted as="h4" content="Check it Out" />
               <List link inverted>
-                <List.Item as="a">Banana Pre-Order</List.Item>
-                <List.Item as="a">DNA FAQ</List.Item>
-                <List.Item as="a">How To Access</List.Item>
-                <List.Item as="a">Favorite X-Men</List.Item>
+                <List.Item as="a">Rabbi Harry Timeline</List.Item>
+                <List.Item as="a">Lost Tribe Statistics</List.Item>
+                <List.Item as="a">Jewish Atlas</List.Item>
+                <List.Item as="a">Newsletter</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={5}>

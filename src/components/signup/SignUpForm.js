@@ -12,6 +12,7 @@ import {
 import { Mutation } from "react-apollo";
 import Error from "../../utilities/Error";
 import { SIGNUP_USER } from "../../querries";
+import { Link } from 'react-router-dom'
 const itribeIcon = "../../itribe.png";
 
 const initialState = {
@@ -44,7 +45,7 @@ class SignUpForm extends Component {
   handleSubmit = (e, register) => {
     e.preventDefault();
     register().then(async ({ data }) => {
-      console.log('ficus', data);
+      // console.log('ficus', data.register.data);
     //   localStorage.setItem("token", data.register.token);
     //   await this.props.refetch();
       this.clearState();
@@ -168,7 +169,7 @@ class SignUpForm extends Component {
               }}
             </Mutation>
             <Message>
-              Already Registered?<a href="#">Log In</a>
+              Already Registered?<Link to='/login'>Log In</Link>
             </Message>
           </Grid.Column>
         </Grid>
