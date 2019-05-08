@@ -9,7 +9,7 @@ const outback = "../../Pashtun/testpash_update.jpg"
 const igbo = "../../Igbo/Igbo Community of HaShem.jpg"
 
  
-export default class PageBreak extends Component {
+export default class CarouselTest extends Component {
     render() {
         return (
             <Carousel

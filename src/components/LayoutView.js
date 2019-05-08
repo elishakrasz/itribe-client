@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
-  Input,
   Grid,
   Header,
   Icon,
@@ -17,36 +15,23 @@ import {
   Visibility
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { Elements, StripeProvider } from "react-stripe-elements";
-import CheckoutForm from "./contributions/CheckoutForm";
 import Globe from "./maps/Globe";
 import {
-  Widget,
-  addResponseMessage,
-  addLinkSnippet,
-  addUserMessage
+  Widget
 } from "react-chat-widget";
+
 import "react-chat-widget/lib/styles.css";
-import LoginModal from "./login/LoginModal";
-import SignUpModal from "./signup/SignUpModal";
 import ReactPlayer from "react-player";
 import PageBreak from "./Carousel/PageBreak";
-import { Calendar } from "./Date/Calendar";
-import ChloroGlobe from "./maps/ChloroGlobe";
-import { HeroVideoExample } from "./Carousel/BackgroundVideo/HeroVideoExample";
+import CarouselTest from "./Carousel/CarouselTest";
+
 
 const itribeIcon = "../../itribe.png";
-const itribeVideo = "https://www.youtube.com/watch?v=YnHcvwOXQIo";
-const itribeCourse = "https://www.youtube.com/watch?v=I3zlHtFE8kw";
+// const itribeVideo = "https://www.youtube.com/watch?v=YnHcvwOXQIo";
+// const itribeCourse = "https://www.youtube.com/watch?v=I3zlHtFE8kw";
 const courseVideo = "https://vimeo.com/252044405";
 const pashtunChildren = "../../Pashtun/children.jpg";
-const theologicalInst = "../../ext.jpg";
-const land = "../../land.jpg";
-const shinto = "../../Shinto/IMG_1833.JPG";
-const outback = "../../Pashtun/testpash_update.jpg";
 const tracing = "../../Tracing.jpg";
-const harry = "../../harry_ilona.jpg"
-
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
 // For more advanced usage please check Responsive docs under the "Usage" section.
@@ -77,7 +62,6 @@ class DesktopContainer extends Component {
           onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
-
             textAlign="center"
             style={{
               minHeight: 1200,
@@ -117,11 +101,9 @@ class DesktopContainer extends Component {
                       paddingRight: "10px"
                     }}
                   />
-                  {/* <LoginModal /> */}
                   <Button color="teal" as={Link} to="/signup">
                     Sign Up
                   </Button>
-                  {/* <SignUpModal /> */}
                 </Menu.Item>
               </Container>
             </Menu>
@@ -154,13 +136,10 @@ class DesktopContainer extends Component {
                 </Grid.Row>
               </Grid>
             </Segment>
-            {/* <Globe /> */}
-            <ChloroGlobe />
-            {console.log('hope', sessionStorage)
-            }
+            <Globe />
+            {/* <ChloroGlobe /> */}
           </Segment>
         </Visibility>
-
         {children}
       </Responsive>
     );
@@ -187,11 +166,14 @@ class MobileContainer extends Component {
         as={Sidebar.Pushable}
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
+        style={{
+          backgroundColor: "#004D8A"
+        }}
       >
         <Sidebar
           as={Menu}
           animation="push"
-          inverted
+          // inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
@@ -208,9 +190,9 @@ class MobileContainer extends Component {
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
-            inverted
+            // inverted
             textAlign="center"
-            style={{ minHeight: 350, padding: "1em 0em" }}
+            style={{ minHeight: 300, padding: "1em 0em" }}
             vertical
           >
             <Container>
@@ -228,6 +210,36 @@ class MobileContainer extends Component {
                 </Menu.Item>
               </Menu>
             </Container>
+            <Segment
+              style={{ padding: "8em 0em", backgroundColor: "white" }}
+              vertical
+            >
+              <Grid container stackable verticalAlign="middle">
+                <Grid.Row>
+                  <Grid.Column width={16}>
+                    <Header
+                      as="h1"
+                      style={{ fontSize: "3em", marginTop: "50px" }}
+                    >
+                      The Lost Tribes are Coming Home
+                    </Header>
+                    <p style={{ fontSize: "1.33em" }}>
+                      iTribe is in the process of activating a newtork of
+                      individuals and communities whose members identity as
+                      being from an ancient people of Israel
+                    </p>
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column textAlign="center">
+                    <Button color='teal' size="huge">
+                      Welcome!
+                    </Button>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Segment>
+            <Globe />
           </Segment>
 
           {children}
@@ -256,7 +268,7 @@ const LayoutView = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Grid container stackable verticalAlign="middle">
-        <Grid.Row>
+        <Grid.Row centered>
           <Grid.Column width={7}>
             <Header as="h3" style={{ fontSize: "3em" }}>
               This is a Global Story
@@ -287,7 +299,7 @@ const LayoutView = () => (
       </Grid>
     </Segment>
     <Segment style={{ padding: "0em", height: "100%" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
+      <Grid celled="internally" columns="equal" stackable centered>
         <Grid.Column width={8}>
           <Grid.Row textAlign="center">
             <ReactPlayer url={courseVideo} playing loop muted width="100%" />
@@ -316,19 +328,13 @@ const LayoutView = () => (
             <br />
             <b>Course Administrator: Rabbi Harry Rozenberg</b>
           </p>
-          {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
-              The Lost Tribes of Israel
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Discover the past, present and future of the world's most dispersed people
-            </p> */}
           <div
             style={{
               textAlign: "center"
             }}
           >
             <Button
-              color='green'
+              color='teal'
               size="huge"
               style={{
                 marginTop: "20px"
@@ -342,7 +348,7 @@ const LayoutView = () => (
     </Segment>
     <Segment style={{ padding: "4em 0em" }} vertical>
       <Grid container stackable>
-        <Grid.Row>
+        <Grid.Row centered>
           <Grid.Column width={7}
               style={{
                 marginTop: '50px'
@@ -356,27 +362,22 @@ const LayoutView = () => (
               Africa, the Far East, and North America and learn facts, culture
               and legends of the lost tribes of Israel.
             </p>
-            {/* <Header as='h3' style={{ fontSize: '2.5em' }}>
-              The Lost Tribes of Israel
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Discover the past, present and future of the world's most dispersed people
-            </p> */}
             <div
               style={{
                 textAlign: "left"
               }}
             >
-              <Button size="huge" color="green">Sign Up To Learn More</Button>
+              <Button size="huge" color="teal">Sign Up To Learn More</Button>
             </div>
           </Grid.Column>
           <Grid.Column floated="right" width={8}>
             <Image
               bordered
+              centered
               size="big"
               src={tracing}
               style={{
-                marginLeft: "50px",
+                marginLeft: "125px",
                 width: "125%"
               }}
             />
@@ -400,7 +401,7 @@ const LayoutView = () => (
             textAlign: "center"
           }}
         >
-          <Button size="large" color="green">Contact Us</Button>
+          <Button size="huge" color="teal">Contact Us</Button>
         </div>
       </Container>
     </Segment>
@@ -412,7 +413,7 @@ const LayoutView = () => (
                 marginLeft: '100px'
               }}
           >
-            <Header as="h3" style={{ fontSize: "3em" }}>
+            <Header as="h3" style={{ fontSize: "2.5em" }}>
               Rabbi Harry Rozenberg
             </Header>
             <p style={{ fontSize: "1.33em" }}>
@@ -423,10 +424,11 @@ const LayoutView = () => (
             </p>
             <div
               style={{
-                textAlign: "left"
+                textAlign: "left",
+                marginTop: '100px'
               }}
             >
-              <Button size="huge" color="green">Sign Up To Learn More</Button>
+              <Button size="huge" color="teal">Sign Up To Learn More</Button>
             </div>
           </Grid.Column>
 
@@ -436,21 +438,21 @@ const LayoutView = () => (
           }}
           width={7}
         >
-          <PageBreak showThumbs={false} />
+          <CarouselTest showThumbs={false} />
           <div
             style={{
               textAlign: "center"
             }}
           >
-            <Button
-              primary
+            {/* <Button
+              color="teal"
               size="huge"
               style={{
                 marginTop: "20px"
               }}
             >
               Register Now
-            </Button>
+            </Button> */}
           </div>
         </Grid.Column>
       </Grid>
@@ -494,7 +496,7 @@ const LayoutView = () => (
               >
                 <Button
                   size="massive"
-                  color="green"
+                  color="teal"
                   style={{
                     marginTop: "20px",
                     paddingRight: "50px",

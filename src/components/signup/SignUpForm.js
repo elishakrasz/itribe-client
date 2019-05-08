@@ -47,9 +47,9 @@ class SignUpForm extends Component {
     register().then(async ({ data }) => {
       // console.log('ficus', data.register.data);
     //   localStorage.setItem("token", data.register.token);
-    //   await this.props.refetch();
+      // await this.props.refetch();
       this.clearState();
-    //   this.props.history.push("/");
+    this.props.history.push("/await-confirmation");
     });
   };
 
@@ -96,7 +96,7 @@ class SignUpForm extends Component {
         >
           <Grid.Column style={{ maxWidth: 500 }}>
             <Header as="h1" color="teal" textAlign="center">
-              <Image src={itribeIcon} size="large" /> Sign Up for iTribe
+              <Image as="a" href="http://localhost:3000" src={itribeIcon} size="massive" /> Sign Up for iTribe
             </Header>
             <Mutation
               mutation={SIGNUP_USER}
