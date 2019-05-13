@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Form } from "formsy-semantic-ui-react";
+import { withFormsy } from 'formsy-react';
+import  { Form }  from "formsy-semantic-ui-react";
 import {
   Button,
   Grid,
@@ -31,7 +32,7 @@ const styles = {
   }
 };
 
-export default class LoginValidation extends Component {
+class LoginValidation extends Component {
   state = { ...initialState };
 
   clearState = () => {
@@ -155,3 +156,5 @@ export default class LoginValidation extends Component {
     );
   }
 }
+
+export default withFormsy(LoginValidation)

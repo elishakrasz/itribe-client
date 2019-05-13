@@ -24,6 +24,7 @@ import "react-chat-widget/lib/styles.css";
 import ReactPlayer from "react-player";
 // import PageBreak from "./Carousel/PageBreak";
 import CarouselTest from "./Carousel/CarouselTest";
+import { DropZoneTest } from "../modules/shared/DropZone";
 
 
 const itribeIcon = "../../itribe.png";
@@ -294,6 +295,7 @@ const LayoutView = () => (
           </Grid.Column>
           <Grid.Column floated="right" width={8}>
             <Image bordered size="big" src={pashtunChildren} />
+            <DropZoneTest />
           </Grid.Column>
         </Grid.Row>
       </Grid>
